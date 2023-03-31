@@ -11,18 +11,24 @@ export default{
 </script>
 
 <template>
-     <div class="row ">
+     <div class="search ">
             <div class="col">
                 <input type="text" class="form-control" placeholder="Search character" v-model="store.search"  >
-            </div>
-            <div class="col">
                 <button @click="$emit('doSearch')" class="btn btn-primary">Search</button>
             </div>
+            
             
         </div>
   
 </template>
 
 <style lang="scss" scoped>
-
+.search{
+    background-color: black;
+}
+.col{
+    display: flex;
+    justify-content: end;
+    
+} 
 </style>

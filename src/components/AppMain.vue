@@ -2,16 +2,32 @@
 
 <template>
      <div class="container">
+        
         <div class="row">
-            <div class="col-3" v-for="(character, index) in store.movieList" :key="index">
-                <AppCard  
-                    
-                    :titolo="character.title"
-                    :titolo_org="character.original_title"
-                    :lingua="character.original_language"
+            <h3>Movie</h3>
+            <div class="movie-card" v-for="(movie, index) in store.movieList" :key="index">
+                <AppCardMovie 
+                    :titolo="movie.name"
+                    :titolo_org="movie.original_name"
+                    :lingua="movie.original_language"
+                    :voto="movie.vote_average"
                 />
             </div>
         </div>
+        
+
+        <div class="row">
+            <h3>Serie tv</h3>
+            <div class="serietv-card" v-for="(tv, index) in store.serieList" :key="index">
+                <AppCardTv 
+                    :titolo="tv.title"
+                    :titolo_org="tv.original_title"
+                    :lingua="tv.original_language"
+                    :voto="tv.vote_average"
+                />
+            </div>
+        </div>
+        
     </div>
 
     
@@ -20,11 +36,13 @@
 <script>
 
 import { store } from '../store.js';
-import AppCard from './AppCard.vue';
+import AppCardMovie from './AppCardMovie.vue';
+import AppCardTv from './AppCardTv.vue';
 
 export default{
     components: {
-        AppCard
+        AppCardMovie,
+        AppCardTv
     },
     data(){
         return {
@@ -35,6 +53,20 @@ export default{
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+.container{
+    max-width: 1000px;
+    margin: auto;
+}
+.row{
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around
+}
+.movie-card,
+.serietv-card{
+    width: calc(100% / 5 - 20px);
+}
 
 </style>
