@@ -69,13 +69,14 @@ export default{
     
     })
    
-  }
-
-    },
+  },
+  
     created() {
       this.getCharactersSeries();
-    }
-
+      this.getCharactersMovie();
+    },
+    
+  }
 }
 
 </script>

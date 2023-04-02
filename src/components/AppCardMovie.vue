@@ -1,7 +1,7 @@
 
 <template>
     <div class="character ">
-        <img src="" alt="">
+        <img :src="img">
         <h3>{{ titolo }}</h3>
         <h5>{{ titolo_org }}</h5>
         <img v-if="lingua == 'it'" class="image" src="../assets/it.svg" alt="flag_italy">
@@ -11,13 +11,22 @@
            
         <div v-else >{{ lingua }}</div>
 
-        <h5>{{ voto }}</h5>
+        <p class="stars">
+                    <span v-for="number in 5" :key="number">
+                        <i class="fa-solid fa-star" v-if="getStars(voto / 2) >= number"></i>
+                        <i class="fa-regular fa-star" v-else ></i>
+
+                    </span>
+                </p>
+       
     </div>
+    
 
 </template>
 <script>
 export default{
     props: {
+        img: String,
         titolo: String,
         titolo_org: String,
         lingua: String,
@@ -25,13 +34,14 @@ export default{
            
         },
         methods: {
-        getImagePath: function (img) {
-            return new URL(`./assets/${img}.svg`, import.meta.url).href;
-        }
-    }
+       getStars(vote) {
+           return Math.ceil(vote);
+       }
+   }
+     
 }
 
 </script>
 <style lang="scss">
-
+ 
 </style>
