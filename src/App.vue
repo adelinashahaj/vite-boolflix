@@ -43,9 +43,7 @@ export default{
       if (store.search.length > 0) {
         
         urlApi += `&query=${store.search}`;
-      } else {
-        urlApi += "?api_key=47080667b8bd1ff723a19f5bd0a7d72f"
-      }
+      } 
         axios.get(urlApi)
         .then(response => {
           this.store.serieList = response.data.results;
@@ -60,9 +58,7 @@ export default{
   if (store.search.length > 0) {
     
     urlApi += `&query=${store.search}`;
-  } else {
-    urlApi += "?api_key=47080667b8bd1ff723a19f5bd0a7d72f"
-  }
+  } 
     axios.get(urlApi)
     .then(response => {
       this.store.movieList = response.data.results;
@@ -71,10 +67,7 @@ export default{
    
   },
   
-    created() {
-      this.getCharactersSeries();
-      this.getCharactersMovie();
-    },
+   
     
   }
 }

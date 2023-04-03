@@ -2,7 +2,7 @@
 
 <template>
      <div class="container">
-        <h3>Movie</h3>
+        <h2>Movie</h2>
         <div class="row">
             
             <div class="movie-card" v-for="(movie, index) in store.movieList" :key="index">
@@ -13,13 +13,14 @@
                     :titolo_org="movie.original_name"
                     :lingua="movie.original_language"
                     :voto="movie.vote_average"
+                    :trama="movie.overview"
                     
                 />
                 
             </div>
         </div>
         
-        <h3>Serie tv</h3>
+        <h2>Serie tv</h2>
         <div class="row">
             
             <div class="serietv-card" v-for="(tv, index) in store.serieList" :key="index">
@@ -29,6 +30,7 @@
                     :titolo_org="tv.original_title"
                     :lingua="tv.original_language"
                     :voto="tv.vote_average"
+                    :trama="tv.overview"
                 />
                
             </div>
@@ -71,11 +73,14 @@ export default{
     padding: 0 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around
+   
 }
 .movie-card,
 .serietv-card{
-    width: calc(100% / 5 - 20px);
+    width: calc(100% / 5 );
+}
+h2 {
+    margin-top: 30px;
 }
 
 
