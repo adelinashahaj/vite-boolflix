@@ -25,7 +25,9 @@
 
                     </span>
           </p>
-          <p class="parag">{{ trama }}</p>
+          <div class="parag">
+            <p>{{ trama }}</p>
+        </div>
     </div>
   </div>
 </div>

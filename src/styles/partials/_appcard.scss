@@ -7,7 +7,7 @@
   .flip-card-inner {
     position: relative;
    width: 231px;
-    height: 400px;
+    height: 380px;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -35,6 +35,7 @@
     color: white;
     transform: rotateY(180deg);
     padding: 10px;
+    overflow-y: hidden;
   }
   img{
       width: 100%;
@@ -48,4 +49,5 @@
 }
 .parag{
   font-size: 10px;
+  overflow-y: hidden;
 }
