@@ -19,12 +19,12 @@
         <div v-else >{{ lingua }}</div>
 
         <p class="stars">
-                    <span v-for="number in 5" :key="number">
-                        <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
-                        <i class="fa-regular fa-star" v-else ></i>
+              <span v-for="number in 5" :key="number">
+                  <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
+                  <i class="fa-regular fa-star" v-else ></i>
 
-                    </span>
-          </p>
+              </span>
+        </p>
           <div class="parag">
             <p>{{ trama }}</p>
         </div>

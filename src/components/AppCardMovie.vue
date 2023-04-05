@@ -9,7 +9,7 @@
     <div class="flip-card-back">
         <h3>{{ titolo }}</h3>
         <h5>{{ titolo_org }}</h5>
-        <img v-if="lingua == 'it'" class="image" src="../assets/it.svg" alt="flag_italy">
+        <img v-if="lingua == 'it'" class="image"   alt="flag_italy">
         <img v-else-if="lingua == 'en'" class="image" src="../assets/en.svg" alt="flag_uk">
         <img v-else-if="lingua == 'fr'" class="image" src="../assets/fr.svg" alt="flag_fr">
         <img v-else-if="lingua == 'de'" class="image" src="../assets/de.svg" alt="flag_de">
@@ -17,15 +17,16 @@
         <div v-else >{{ lingua }}</div>
 
         <p class="stars">
-                    <span v-for="number in 5" :key="number">
-                        <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
-                        <i class="fa-regular fa-star" v-else ></i>
+            <span v-for="number in 5" :key="number">
+                <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
+                <i class="fa-regular fa-star" v-else ></i>
 
-        </span>
+            </span>
         </p>
         <div class="parag">
             <p>{{ trama }}</p>
         </div>
+        <h5>{{ }}</h5>
       
     </div>
   </div>
@@ -41,7 +42,9 @@ export default{
         titolo_org: String,
         lingua: String,
         voto: Number,
-        trama: String
+        trama: String,
+       
+       
            
         },
      
