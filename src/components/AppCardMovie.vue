@@ -16,20 +16,25 @@
            
         <div v-else >{{ lingua }}</div>
 
-        <p class="stars">
+        <p class="stars mg-top">
             <span v-for="number in 5" :key="number">
                 <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
                 <i class="fa-regular fa-star" v-else ></i>
 
             </span>
         </p>
-        <h4>Attori:</h4>
+        <h4 class="tex-color mg-top">Attori:</h4>
+      <div v-if="cast">
+
         <span v-for="(element, index) in cast.splice(0, 5)" :key="index">
-             {{element.name }}
-        </span>
-        
-        <h4>Trama</h4>
-        <div class="parag">
+            
+            {{element.name }}
+       </span>
+       
+      </div>
+      
+        <h4 class="tex-color mg-top">Trama</h4>
+        <div class="mg-top parag">
             <p>{{ trama.substring(0, 100) }}</p>
         </div>
         
@@ -54,11 +59,7 @@ export default{
         
         },
         methods: {
-         getCast(){
-            let newcast=[];
-            newcast.push(this.cast)
-            return newcast;
-         }
+         
         }
      
      

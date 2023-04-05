@@ -23,15 +23,19 @@
                   <i class="fa-solid fa-star" v-if="Math.floor(voto / 2) >= number"></i>
                   <i class="fa-regular fa-star" v-else ></i>
 
-              </span>
+             </span>
         </p>
-        <h4>Attori:</h4>
-        <span v-for="(element, index) in cast.splice(0, 5)" :key="index">
-             {{element.name }}
-        </span>
-        
-        <h4>Trama</h4>
-          <div class="parag">
+        <h4 class="tex-color mg-top ">Attori:</h4>
+         <div v-if="cast">
+
+              <span v-for="(element, index) in cast.splice(0, 5)" :key="index">
+                  
+                  {{element.name }}
+              </span>
+
+        </div>
+        <h4 class="tex-color mg-top">Trama</h4>
+          <div class="parag mg-top">
             <p>{{ trama.substring(0, 100) }}</p>
         </div>
 

@@ -93,7 +93,29 @@ export default{
    }
 
    
-  }
+  },
+  getGenre() {
+      let movieGenreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=47080667b8bd1ff723a19f5bd0a7d72f&language=it-IT';
+      let tvGenreApi = 'https://api.themoviedb.org/3/genre/tv/list?api_key=47080667b8bd1ff723a19f5bd0a7d72f&language=it-IT';
+      axios.get(movieGenreApi).then(response => {
+        this.store.movieGenres = response.data.genres;
+      });
+      axios.get(tvGenreApi).then(response => {
+        let support = [];
+        this.store.tvGenres = response.data.genres;
+        this.store.genres = [...this.store.movieGenres];
+        this.store.genres.forEach(element => {
+          support.push(element.id);
+        });
+        this.store.tvGenres.forEach(element => {
+          if (!support.includes(element.id)) {
+            this.store.genres.push(element);
+          }
+        });
+      });
+    },
+  },
+  
 
     /*
     ***un altro esempio***
@@ -115,7 +137,7 @@ export default{
     */
     
   }
-}
+
 
 </script>
 

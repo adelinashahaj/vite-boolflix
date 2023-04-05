@@ -37,6 +37,7 @@
                         :trama="tv.overview"
                         :cast="tv.cast"
                         
+                        
                        
                         
                     />
