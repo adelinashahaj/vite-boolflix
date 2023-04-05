@@ -25,9 +25,16 @@
 
               </span>
         </p>
+        <h4>Attori:</h4>
+        <span v-for="(element, index) in cast.splice(0, 5)" :key="index">
+             {{element.name }}
+        </span>
+        
+        <h4>Trama</h4>
           <div class="parag">
-            <p>{{ trama }}</p>
+            <p>{{ trama.substring(0, 100) }}</p>
         </div>
+
     </div>
   </div>
 </div>
@@ -43,7 +50,8 @@ export default{
         titolo_org: String,
         lingua: String,
         voto: Number,
-        trama: String
+        trama: String,
+        cast: Array
         
             
         },

@@ -64,6 +64,7 @@ export default{
     axios.get(urlApi, paramsObject )
     .then(response => {
       this.store.serieList = response.data.results;
+      this.getAttori();
     
     })
    
@@ -71,18 +72,26 @@ export default{
 
   getAttori() {
 
-    let urlApi = 'https://api.themoviedb.org/3/movie/268/credits?api_key=47080667b8bd1ff723a19f5bd0a7d72f';
-
       for(let i = 0; i < this.store.movieList.length; i++) {
-       
-        }
-
+        let urlApi = `https://api.themoviedb.org/3/movie/${this.store.movieList[i].id}/credits?api_key=47080667b8bd1ff723a19f5bd0a7d72f`;
     axios.get(urlApi )
     .then(response => {
-      this.store.nomiAttori = response.data.cast;
-      console.log(this.store.nomiAttori);
+      this.store.movieList[i].cast = response.data.cast;
+      
 
     })
+   }
+
+   for(let i = 0; i < this.store.serieList.length; i++) {
+        let urlApi = `https://api.themoviedb.org/3/tv/${this.store.serieList[i].id}/credits?api_key=47080667b8bd1ff723a19f5bd0a7d72f`;
+    axios.get(urlApi )
+    .then(response => {
+      this.store.serieList[i].cast = response.data.cast;
+      
+
+    })
+   }
+
    
   }
 

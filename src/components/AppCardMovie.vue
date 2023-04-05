@@ -23,10 +23,16 @@
 
             </span>
         </p>
+        <h4>Attori:</h4>
+        <span v-for="(element, index) in cast.splice(0, 5)" :key="index">
+             {{element.name }}
+        </span>
+        
+        <h4>Trama</h4>
         <div class="parag">
-            <p>{{ trama }}</p>
+            <p>{{ trama.substring(0, 100) }}</p>
         </div>
-        <h5>{{ }}</h5>
+        
       
     </div>
   </div>
@@ -36,6 +42,7 @@
 </template>
 <script>
 export default{
+    
     props: {
         img: String,
         titolo: String,
@@ -43,10 +50,16 @@ export default{
         lingua: String,
         voto: Number,
         trama: String,
-       
-       
-           
+        cast: Array
+        
         },
+        methods: {
+         getCast(){
+            let newcast=[];
+            newcast.push(this.cast)
+            return newcast;
+         }
+        }
      
      
 }
